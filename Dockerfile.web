@@ -9,10 +9,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el script de la aplicación web
-
+COPY app_web.py .
 
 # Exponer el puerto en el que se ejecutará la aplicación de Streamlit
-EXPOSE 
+EXPOSE 8501
 
 # Comando para ejecutar la aplicación de Streamlit cuando se inicie el contenedor
-CMD ["streamlit", "run", "app_webs.py"]
+CMD ["streamlit", "run", "app_web.py"]
