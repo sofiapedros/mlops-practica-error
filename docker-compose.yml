@@ -1,18 +1,18 @@
 services:
   mlops-api:
-    image: juanviz/mlops-api
-    container_name: mlops-api
+    image: 
+    container_name:
     ports:
-      - "5000:5000"
+      - 
     restart: always
 
   mlops-web:
-    image: juanviz/mlops-web
-    container_name: mlops-web
+    image:
+    container_name:
     ports:
-      - "8501:8501"
+      - 
     environment:
-      - API_URL=http://mlops-api:5000/predict
+      - API_URL=
     depends_on:
       - mlops-api
     restart: always

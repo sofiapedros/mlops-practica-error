@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mlops-web-deployment
+  name: 
   labels:
-    app: mlops-web
+    app: 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mlops-web
+      app: 
   template:
     metadata:
       labels:
-        app: mlops-web
+        app: 
     spec:
       containers:
-      - name: mlops-web
-        image: gcr.io/icai2025/mlops-web:latest # <--- RUTA DE IMAGEN
+      - name: 
+        image: gcr.io/icai2025/xxx:latest 
         ports:
         - containerPort: 8501
         env:
         - name: API_URL
-          value: http://mlops-api-service:5000/predict # <--- Conexión al servicio interno de la API
+          value: http://mlops-api-service:5000/predict 

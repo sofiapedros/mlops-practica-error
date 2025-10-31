@@ -1,0 +1,39 @@
+name: MLOps GKE
+on: [push, pull_request]
+
+jobs:
+  deploy-to-gke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - id: 'auth'
+        name: Authenticate to Google Cloud
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: 
+      - name: Set up gcloud CLI and kubectl
+        uses: 'google-github-actions/setup-gcloud@v20'
+        with:
+          version: 'latest'
+          install_components: 'gke-gcloud-auth-plugin'
+      - name: Get GKE credentials
+        run: gcloud container clusters get-credentials ${{  }} --zone ${{  }} --project ${{  }}
+      - name: Configure Docker to use GCR
+        run: gcloud auth configure-docker
+
+      - name: Build and Push API Docker Image
+        run: |
+          docker build -t gcr.io/${{ xxxxx }}/xxxxxx:latest .
+          docker push gcr.io/${{ xxxxx }}/xxxxxx:latest
+      - name: Build and Push Web Docker Image
+        run: |
+          docker build -t gcr.io/${{ xxxxx }}/xxxxxx:latest -f Dockerfile.web .
+          docker push gcr.io/${{ xxxxx }}/xxxxxx:latest
+      - name: Deploy to GKE
+        run: |
+          
