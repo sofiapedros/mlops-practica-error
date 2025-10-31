@@ -1,18 +1,18 @@
 services:
   mlops-api:
-    image: 
-    container_name:
+    image: spedros/mlops-api-sinerror:latest
+    container_name: mlops-api-container
     ports:
-      - 
+      - "6000:5000"
     restart: always
 
   mlops-web:
-    image:
-    container_name:
+    image: spedros/mlops-web-sinerror:latest
+    container_name: mlops-web-container
     ports:
-      - 
+      - "8080:8501"
     environment:
-      - API_URL=
+      - API_URL=http://mlops-api-container:5000/predict
     depends_on:
       - mlops-api
     restart: always
