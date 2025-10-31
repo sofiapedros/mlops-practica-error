@@ -15,14 +15,14 @@ jobs:
         name: Authenticate to Google Cloud
         uses: 'google-github-actions/auth@v2'
         with:
-          credentials_json: 
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
       - name: Set up gcloud CLI and kubectl
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: 'latest'
           install_components: 'gke-gcloud-auth-plugin'
       - name: Get GKE credentials
-        run: gcloud container clusters get-credentials ${{ secrets.GCP_SA_KEY }} --zone ${{ vars.GKE_ZONE }} --project ${{ vars.GCP_PROJECT_ID  }}
+        run: gcloud container clusters get-credentials ${{ vars.GKE_CLUSTER }} --zone ${{ vars.GKE_ZONE }} --project ${{ vars.GCP_PROJECT_ID  }}
       - name: Configure Docker to use GCR
         run: gcloud auth configure-docker
 
