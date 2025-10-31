@@ -24,14 +24,15 @@ if st.button('Obtener Predicción'):
 
     # URL de la API de predicción (cambia esta URL si la API no está en tu máquina local)
     api_url = os.environ.get('API_URL')
-
+    # api_url = "http://127.0.0.1:6000/predict"
+    
     try:
         # Enviar la petición a la API
         response = requests.post(api_url, data=json.dumps(payload), headers={'Content-Type': 'application/json'})
-
         # Verificar si la petición fue exitosa
         if response.status_code == 200:
             prediction_result = response.json().get('prediction')
+
 
             # Mapear el resultado numérico a una especie
             species_map = {0: 'Setosa', 1: 'Versicolor', 2: 'Virginica'}
