@@ -17,7 +17,7 @@ jobs:
         with:
           credentials_json: 
       - name: Set up gcloud CLI and kubectl
-        uses: 'google-github-actions/setup-gcloud@v20'
+        uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: 'latest'
           install_components: 'gke-gcloud-auth-plugin'
