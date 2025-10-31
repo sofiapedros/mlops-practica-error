@@ -34,7 +34,7 @@ jobs:
         run: |
           docker build -t gcr.io/${{ vars.GCP_PROJECT_ID }}/mlops-web-sinerror:latest -f Dockerfile.web .
           docker push gcr.io/${{ vars.GCP_PROJECT_ID }}/mlops-web-sinerror:latest
-      - name: Deploy to GKE
+      - name: Deploy to GKE 
         run: |
           kubectl apply -f api-deployment.yaml
           kubectl apply -f api-service.yaml
