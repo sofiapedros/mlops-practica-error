@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: mlops-web
-        image: gcr.io/icai2025/mlops-web-sinerror:latest 
+        image: gcr.io/icai202/mlops-web-sinerror:latest 
         ports:
         - containerPort: 8501
         env:
