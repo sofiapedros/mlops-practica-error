@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 
+  name: mlops-api-deployment
   labels:
-    app: 
+    app: mlops-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: 
+      app: mlops-api
   template:
     metadata:
       labels:
-        app: 
+        app: mlops-api
     spec:
       containers:
-      - name: 
-        image: gcr.io/icai2025/xxxxx:latest
+      - name: mlops-api
+        image: gcr.io/icai202/mlops-api-sinerror:latest
         ports:
-        - containerPort: 50000
+        - containerPort: 5000
 
 
